@@ -1,9 +1,9 @@
 # Generate KHQR and Check Transaction Payment
 
 This repository provides tools for generating KHQR (Khmer Quick Response) codes and checking transaction payments using API, implemented both in Python and as an npm package.
-
-<img src="combined_image.jpg" alt="Example Image" width="200"/>
-
+<p align="center">
+<img src="combined_image.jpg" alt="Example Image" width="400"/>
+</p>
 ## Features
 
 - **Generate KHQR Codes**: Easily generate KHQR codes for transactions in Cambodian Riel (KHR).
