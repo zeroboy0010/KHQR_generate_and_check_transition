@@ -59,5 +59,7 @@ To use the Python implementation, follow these steps:
 4. register an account in [Bakong Openg API](https://api-bakong.nbc.gov.kh/) to get token to `Check transition using MD5`
 ## Support Document
 [Bakong Openg API](https://api-bakong.nbc.gov.kh/)
+,
 [KHQR Guideline](https://bakong.nbc.gov.kh/download/KHQR/integration/KHQR%20Content%20Guideline%20v.1.3.pdf)
+and 
 [API Document](https://bakong.nbc.gov.kh/download/KHQR/integration/Bakong%20Open%20API%20Document.pdf)
