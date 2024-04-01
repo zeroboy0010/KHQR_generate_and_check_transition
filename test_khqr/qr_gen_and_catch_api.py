@@ -3,6 +3,9 @@ import qrcode
 import re
 import requests
 import json
+from PIL import Image
+import cairosvg
+import base64
 from time import time, sleep
 # URL to which the POST request is sent
 url = 'https://api-bakong.nbc.gov.kh/v1/check_transaction_by_md5'
@@ -26,7 +29,7 @@ text  = result.stdout
 pattern = r"'(.*?)'"
 matches = re.findall(pattern, text)
 
-print(matches[0])
+# print(matches[0])
 
 qr = qrcode.QRCode(
     version=1,
@@ -39,15 +42,40 @@ qr.make(fit=True)
 img = qr.make_image(fill_color="black", back_color="white")
 img.save("qrcode.png")
 
+# combine image #####################
+# Load the QR code image
+# Open the two images
+image1 = Image.open('KHQR_Stand.png')
+image2 = Image.open('qrcode.png')
+
+# Ensure both images have the same height
+max_height = max(image1.height, image2.height)
+
+# Create a new image with the combined width of the two images
+combined_image = Image.new('RGBA', (image1.width, image1.height))
+
+# Paste the two images into the combined image
+combined_image.paste(image1, (0, 0))
+combined_image.paste(image2, ((int)((image1.width- image2.width)/2 ) ,(int)((image1.height - image2.height)/2 - 100)))
+
+# Save the combined image
+combined_image_rgb = combined_image.convert('RGB')
+
+combined_image_rgb.save('combined_image.jpg','JPEG')
+
+##########################################
+
+
+
 # Print any errors
-print("Errors:", result.stderr)
+# print("Errors:", result.stderr)
 
 # while 
 # Send the POST request
 data = {
     'md5': matches[1]
 }
-print(matches[1])
+# print(matches[1])
 data_json = json.dumps(data)
 
 
